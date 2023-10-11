@@ -1,0 +1,50 @@
+@keyframes menu_slide {
+    from {
+        right: -30%;
+    }
+
+    to {
+        right: 0%;
+    }
+}
+
+.account-menu-container {
+    background-color: grey;
+    position: absolute;
+    top: 0;
+    height: 100%;
+    width: calc(150px + 10%);
+    animation-name: menu_slide;
+    animation-duration: .3s;
+    animation-fill-mode: forwards;
+}
+
+.account-item {
+    display: block;
+    color: wheat;
+    padding: 5px 20px;
+    text-align: left;
+    text-decoration: none;
+}
+
+.close-btn-container {
+    display: flex;
+    justify-content: space-between;
+    height: 60px;
+    margin-right: 20px;
+    margin-bottom: 10px;
+    line-height: 60px;
+}
+
+
+.close-menu-button {
+    color: wheat;
+    font-size: 50px;
+    float: right;
+}
+
+.menu-linebreak {
+    width: 90%;
+    border-bottom: 1px solid #6f3333;
+    margin: 10px auto;
+}
