@@ -1,16 +1,16 @@
 import React from 'react';
-import Navbar from '../Navbar/Navbar';
 import './App.css';
-
+import Example from '../Navbar/Navbar';
 
 
 function App() {
+
   return(
     <>
-      <Navbar />
-      <div>
-
-      </div>
+        <Example />
+        <div className='container'>
+          test
+        </div>
     </>
       
   )

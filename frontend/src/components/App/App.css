@@ -12,3 +12,6 @@ button {
   cursor: pointer;
 }
 
+.blur-content {
+  filter: blur(5px);
+}

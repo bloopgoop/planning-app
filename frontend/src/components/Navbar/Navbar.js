@@ -1,14 +1,14 @@
 import React, { useState } from 'react';
 import './Navbar.css';
 import './AccountMenu.css';
+import Offcanvas from 'react-bootstrap/Offcanvas';
 
 
 export default function Navbar() {
-    const [isAccountMenuOpen, setIsAccountMenuOpen] = useState(false);
+    const [show, setShow] = useState(false);
 
-    function openAccountMenu() {
-        setIsAccountMenuOpen(true);
-    }
+    const handleClose = () => setShow(false);
+    const handleShow = () => setShow(true);
 
     return (
         <>
@@ -16,40 +16,35 @@ export default function Navbar() {
                 <div className='nav-item'><a href='#' data-item='Home'>Home</a></div>
                 <div className='nav-item'><a href='#'>Logo</a></div>
                 <div className='nav-item'>
-                    <button onClick={() => setIsAccountMenuOpen(true)}>
+                    <button onClick={handleShow}>
                         Account
                     </button>
                 </div>
             </nav>
-            {/* if menu is opened, render menu with the function to close it as a prop */}
-            {isAccountMenuOpen && <AccountMenu onClose={() => setIsAccountMenuOpen(false)}/>}
+            <AccountMenu handleClose={handleClose} show={show}/>
             <div className='linebreak'></div>
         </>
-
     )
 }
 
-function AccountMenu({ onClose }) {
+// Bootstrap Offcanvas component, pass in show and handleClose as props
+function AccountMenu({ show, handleClose }) {
     return (
-        <div className='account-menu-container'>
-            <div className='close-btn-container'>
-                <div className='nav-item'>
-                    <div>
-                        Account
-                    </div>
-                </div>
-                <button onClick={onClose} className='close-menu-button'>
-                    X
-                </button>
-            </div>
-
-            <a href='#' className='account-item'>Set status</a>
-            <div className='menu-linebreak'></div>
-            <a href='#' className='account-item'>Profile</a>
-            <div className='menu-linebreak'></div>
-            <a href='#' className='account-item'>Your plans</a>
-            <a href='#' className='account-item'>Your templates</a>
-            <a href='#' className='account-item'>Log out</a>
-        </div>
-    )
-}
+      <>
+        <Offcanvas show={show} onHide={handleClose} placement='end'>
+          <Offcanvas.Header closeButton>
+            <Offcanvas.Title>Offcanvas</Offcanvas.Title>
+          </Offcanvas.Header>
+          <Offcanvas.Body>
+              <a href='#' className='account-item'>Set status</a>
+              <div className='menu-linebreak'></div>
+              <a href='#' className='account-item'>Profile</a>
+              <div className='menu-linebreak'></div>
+              <a href='#' className='account-item'>Your plans</a>
+              <a href='#' className='account-item'>Your templates</a>
+              <a href='#' className='account-item'>Log out</a>
+          </Offcanvas.Body>
+        </Offcanvas>
+      </>
+    );
+  }
