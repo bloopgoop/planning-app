@@ -1,25 +1,3 @@
-@keyframes menu_slide {
-    from {
-        right: -30%;
-    }
-
-    to {
-        right: 0%;
-    }
-}
-
-#account-menu-container {
-    background-color: grey;
-    position: absolute;
-    top: 0;
-    height: 100vh;
-    width: calc(150px + 10%);
-    animation-name: menu_slide;
-    animation-duration: .3s;
-    animation-fill-mode: forwards;
-    filter: blur(0px);
-}
-
 .account-item {
     display: block;
     color: black;
@@ -47,10 +25,4 @@
     width: 90%;
     border-bottom: 1px solid #6f3333;
     margin: 10px auto;
-}
-
-.blur {
-    filter: blur(1px);
-    cursor: pointer;
-    pointer-events: none;
 }

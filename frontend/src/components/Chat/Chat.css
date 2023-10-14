@@ -1,0 +1,133 @@
+.wrapper {
+    position: relative;
+    height: calc(100vh - 61px);
+}
+
+.chatbox {
+    width: 300px;
+    height: 80%;
+    background-color: rgb(95, 95, 126);
+    border-radius: 0px 5px 5px 0px;
+
+    /* Center vertically */
+    position: absolute;
+    top: 50%;
+    transform: translate(0, -50%);
+}
+
+
+.chatbox-toggle {
+    height: 50px;
+    width: 20px;
+    background-color: red;
+
+    position: absolute;
+    top: 50%;
+    transform: translate(0, -50%);
+    right: 0;
+    margin-right: -20px;
+
+}
+
+.chatbox-contents {
+    position: relative;
+    margin: 20px 10px 20px 0;
+    background-color: wheat;
+    height: calc(100% - 40px);
+    width: calc(100% - 20px);
+    border-radius: 0px 5px 5px 0px;
+}
+
+
+#message-box {
+    background-color: blue;
+
+    position: absolute;
+    bottom: 0px;
+    width: 100%;
+    min-height: 50px;
+    max-height: 50%;
+    padding: 10px 10px;
+    border-radius: 0px 0px 5px 0px;
+}
+
+#send {
+    position: absolute;
+    bottom: 0px;
+    right: 0px;
+    height: 100%;
+    width: 60px;
+    background-color: green;
+    border-radius: 0px 0px 5px 0px;
+    font-size: 16px;
+    color: wheat;
+    border-top: 1px solid black;
+}
+
+#send:hover {
+    text-shadow: 0 0 3px #ff0000;
+}
+
+#message {
+    position: absolute;
+    bottom: 0px;
+    left: 0px;
+    min-height: 50px;
+    width: calc(100% - 60px);
+
+    color: aliceblue;
+    padding-left: 10px;
+    background-color: rgb(107, 18, 80);
+    font-size: 16px;
+    border: none;
+    border-top: 1px solid black;
+    resize: vertical;
+}
+
+#message:focus {
+    outline: none;
+}
+
+@keyframes hideChat {
+    0% {
+        left: 0px;
+    }
+    100% {
+        left: -300px;
+    }
+}
+
+@keyframes showChat {
+    0% {
+        left: -300px;
+    }
+    100% {
+        left: 0px;
+    }
+}
+
+.logs {
+    position: relative;
+    background-color: #c6c6c6;
+    overflow-y: scroll;
+    height: calc(100% - 50px);
+}
+
+.logs::-webkit-scrollbar {
+    width: 10px;
+}
+
+.logs::-webkit-scrollbar-track {
+    border-radius: 8px;
+    background-color: #e7e7e7;
+    border: 1px solid #cacaca;
+}
+
+.logs::-webkit-scrollbar-thumb {
+    border-radius: 8px;
+    background-color: #d55959;
+}
+
+.message {
+    padding: 10px 10px 0 10px;
+}

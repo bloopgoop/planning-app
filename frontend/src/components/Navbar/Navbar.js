@@ -33,7 +33,7 @@ function AccountMenu({ show, handleClose }) {
       <>
         <Offcanvas show={show} onHide={handleClose} placement='end'>
           <Offcanvas.Header closeButton>
-            <Offcanvas.Title>Offcanvas</Offcanvas.Title>
+            <Offcanvas.Title>Account</Offcanvas.Title>
           </Offcanvas.Header>
           <Offcanvas.Body>
               <a href='#' className='account-item'>Set status</a>

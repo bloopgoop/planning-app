@@ -1,16 +1,15 @@
 import React from 'react';
 import './App.css';
-import Example from '../Navbar/Navbar';
+import Navbar from '../Navbar/Navbar';
+import Chat from '../Chat/Chat';
 
 
 function App() {
 
   return(
     <>
-        <Example />
-        <div className='container'>
-          test
-        </div>
+        <Navbar />
+        <Chat />
     </>
       
   )
