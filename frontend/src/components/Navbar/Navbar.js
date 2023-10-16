@@ -22,7 +22,6 @@ export default function Navbar() {
                 </div>
             </nav>
             <AccountMenu handleClose={handleClose} show={show}/>
-            <div className='linebreak'></div>
         </>
     )
 }

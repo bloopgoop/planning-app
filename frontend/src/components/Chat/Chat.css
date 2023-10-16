@@ -6,8 +6,8 @@
 .chatbox {
     width: 300px;
     height: 80%;
-    background-color: rgb(95, 95, 126);
-    border-radius: 0px 5px 5px 0px;
+    background-color: #4F4171;
+    border-radius: 0px 10px 10px 0px;
 
     /* Center vertically */
     position: absolute;
@@ -19,7 +19,8 @@
 .chatbox-toggle {
     height: 50px;
     width: 20px;
-    background-color: red;
+    background-color: #4F4171;
+    border-radius: 0px 10px 10px 0px;
 
     position: absolute;
     top: 50%;
@@ -40,7 +41,7 @@
 
 
 #message-box {
-    background-color: blue;
+    background-color: #4F4171;
 
     position: absolute;
     bottom: 0px;
@@ -57,11 +58,11 @@
     right: 0px;
     height: 100%;
     width: 60px;
-    background-color: green;
+    background-color: #84808E;
     border-radius: 0px 0px 5px 0px;
     font-size: 16px;
     color: wheat;
-    border-top: 1px solid black;
+    border-top: 1px solid #84808E;
 }
 
 #send:hover {
@@ -77,10 +78,10 @@
 
     color: aliceblue;
     padding-left: 10px;
-    background-color: rgb(107, 18, 80);
+    background-color: #84808E;
     font-size: 16px;
     border: none;
-    border-top: 1px solid black;
+    border-top: 1px solid #84808E;
     resize: vertical;
 }
 
@@ -108,9 +109,10 @@
 
 .logs {
     position: relative;
-    background-color: #c6c6c6;
+    background-color: #DABED2;
     overflow-y: scroll;
     height: calc(100% - 50px);
+    border-radius: 0px 10px 0px 0px;
 }
 
 .logs::-webkit-scrollbar {

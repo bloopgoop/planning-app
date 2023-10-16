@@ -88,22 +88,20 @@ export default function Chat() {
     ]
 
     return (
-        <div className='wrapper'>
-            <div ref={chatRef} className='chatbox'>
-                <div className='chatbox-contents'>
-                    <div className='logs'>
-                        {logs.map(log => 
-                            <Message message={log} />
-                        )   
-                        }
-                    </div>
-                    <form onSubmit={handleSubmit} id='message-box'>
-                        <input type="text" name="message" id='message'/>
-                        <button variant='success' id='send'>Send</button>
-                    </form>
+        <div ref={chatRef} className='chatbox'>
+            <div className='chatbox-contents'>
+                <div className='logs'>
+                    {logs.map(log => 
+                        <Message message={log} />
+                    )   
+                    }
                 </div>
-                <button onClick={toggleChat} className='chatbox-toggle'>{'<'}</button>
+                <form onSubmit={handleSubmit} id='message-box'>
+                    <input type="text" name="message" id='message'/>
+                    <button variant='success' id='send'>Send</button>
+                </form>
             </div>
+            <button onClick={toggleChat} className='chatbox-toggle'>{'<'}</button>
         </div>
     );
 }
