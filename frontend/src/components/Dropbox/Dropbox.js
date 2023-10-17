@@ -1,4 +1,4 @@
-import React, { useRef, useState } from 'react';
+import React, { Component, useRef, useState } from 'react';
 import './Dropbox.css';
 
 
