@@ -5,6 +5,9 @@ import Chat from '../Chat/Chat';
 import Tab from '../Tab/Tab'
 import { useState, useEffect } from 'react';
 
+import { Tldraw } from '@tldraw/tldraw'
+import '@tldraw/tldraw/tldraw.css'
+
 function getWindowDimensions() {
   const { innerWidth: width, innerHeight: height } = window;
   return {
@@ -30,8 +33,7 @@ function useWindowDimensions() {
 
 function App() {
 
-  const height = 1080;
-  const width = 1920;
+  const { height, width } = useWindowDimensions();
 
   return(
     <>
@@ -42,7 +44,6 @@ function App() {
           <div id="canvas" style={{width: `${width}px`, height: `${height}px`}}>
             <Tab />
           </div>
-
         </div>
     </>
       
