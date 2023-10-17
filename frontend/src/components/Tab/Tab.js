@@ -1,10 +1,10 @@
 import React from 'react'
 import './Tab.css';
 
+// const [image, getImages] = useState([]) 
 
 const images = require.context('../../assets', true);
 const imageList = images.keys().map(image => images(image));
-
 
 export default function Tab() {
     return(
@@ -17,9 +17,13 @@ export default function Tab() {
                             ))}
             {imageList.map((image, index) => (
                             <div className="image">
-                                <img src={image} height={100}width={100}/>
+                                <img onClick={click} src={image} height={100}width={100}/>
                             </div>
                             ))}
         </div>
     )
+}
+
+function click() {
+    console.log('k')
 }

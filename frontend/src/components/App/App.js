@@ -37,8 +37,9 @@ function App() {
     <>
         <Navbar />
         <div id="app">
-          {/* <Chat /> */}
-          <div id="view" style={{width: `${width}px`, height: `${height - 60}px`}}>
+          <Chat />
+          {console.log(height, width)}
+          <div id="canvas" style={{width: `${width}px`, height: `${height}px`}}>
             <Dropbox />
             <Tab />
           </div>
