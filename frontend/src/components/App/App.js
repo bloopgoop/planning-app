@@ -2,6 +2,7 @@ import React from 'react';
 import './App.css';
 import Navbar from '../Navbar/Navbar';
 import Chat from '../Chat/Chat';
+import Tab from '../Tab/Tab'
 import { useState, useEffect } from 'react';
 
 import { Tldraw } from '@tldraw/tldraw'
@@ -39,10 +40,10 @@ function App() {
         <Navbar />
         <div id="app">
           <Chat />
-          <div id="view" style={{width: `${width - 400}px`, height: `${height - 60}px`}}>
-              <Tldraw />
+          {console.log(height, width)}
+          <div id="canvas" style={{width: `${width}px`, height: `${height}px`}}>
+            <Tab />
           </div>
-
         </div>
     </>
       
