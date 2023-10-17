@@ -40,7 +40,7 @@ function App() {
           <Chat />
           {console.log(height, width)}
           <div id="canvas" style={{width: `${width}px`, height: `${height}px`}}>
-            <Tab />
+          <Tab />
           </div>
 
         </div>
