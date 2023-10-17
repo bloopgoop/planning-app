@@ -3,6 +3,7 @@ import './App.css';
 import Navbar from '../Navbar/Navbar';
 import Chat from '../Chat/Chat';
 import Dropbox from '../Dropbox/Dropbox';
+import Tab from '../Tab/Tab'
 import { useState, useEffect } from 'react';
 
 function getWindowDimensions() {
@@ -39,8 +40,8 @@ function App() {
           {/* <Chat /> */}
           <div id="view" style={{width: `${width}px`, height: `${height - 60}px`}}>
             <Dropbox />
+            <Tab />
           </div>
-
         </div>
     </>
       
