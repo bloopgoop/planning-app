@@ -2,6 +2,7 @@ import React from 'react';
 import './App.css';
 import Navbar from '../Navbar/Navbar';
 import Chat from '../Chat/Chat';
+import Dropbox from '../Dropbox/Dropbox';
 import Tab from '../Tab/Tab'
 import { useState, useEffect } from 'react';
 
@@ -30,8 +31,7 @@ function useWindowDimensions() {
 
 function App() {
 
-  const height = 1080;
-  const width = 1920;
+  const { height, width } = useWindowDimensions();
 
   return(
     <>
@@ -40,9 +40,9 @@ function App() {
           <Chat />
           {console.log(height, width)}
           <div id="canvas" style={{width: `${width}px`, height: `${height}px`}}>
-          <Tab />
+            <Dropbox />
+            <Tab />
           </div>
-
         </div>
     </>
       
