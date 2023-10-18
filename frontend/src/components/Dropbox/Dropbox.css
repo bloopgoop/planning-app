@@ -28,3 +28,16 @@
     padding: 6px 12px;
     cursor: pointer;
 }
+
+
+#file-input-button {
+    color: transparent;
+    width: 110px;
+    overflow: none;
+    padding: 10px 10px;
+}
+
+.dropbox-image {
+    height: 100%;
+    width: 100%;
+}

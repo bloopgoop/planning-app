@@ -1,69 +1,54 @@
-import React, { Component, useRef, useState } from 'react';
+import React, { useEffect, useRef, useState } from 'react';
 import './Dropbox.css';
 
 
 function Dropbox() {
     const fileInputRef = useRef(null);
     const dropboxRef = useRef(null);
+    const [fileObject, setFileObject] = useState(null);
     const [image, setImage] = useState(null);
+    const [fileName, setFileName] = useState(null);
+
+    useEffect(() => {
+        if (fileObject) {
+            // set image as dropbox and name for button
+            setFileName(fileObject.name);
+            console.log(fileObject.name);
+
+            // extract image data from fileObject
+            const reader = new FileReader();
+            reader.readAsDataURL(fileObject);
+            reader.onload = () => {
+                setImage(reader.result);
+                dropboxRef.current.style.backgroundColor = 'lightgray';
+                dropboxRef.current.style.boxShadow = 'none';
+            };
+        }
+    }, [fileObject]);
 
     const handleFileChange = (event) => {
         const file = event.target.files[0];
-        if (file && file.type.startsWith('image/')) {
-            const reader = new FileReader();
-            reader.onload = (e) => {
-                setImage(e.target.result);
-            };
-            reader.readAsDataURL(file);
-        } else {
-            setImage(null);
-            alert('Please only upload images');
-        }
+        setFileObject(file);
     };
 
     const handleDragOver = (e) => {
         e.preventDefault();
-        dropboxRef.current.style.backgroundColor = 'red';
-        // You can add more visual cues for drag over event here
+        dropboxRef.current.style.backgroundColor = 'white';
+        dropboxRef.current.style.boxShadow = 'inset 0px 0px 10px 5px rgba(0, 0, 0, 0.2)';
       };
       
       const handleDragLeave = (e) => {
         e.preventDefault();
         dropboxRef.current.style.backgroundColor = 'lightgray';
-        // You can add more visual cues for drag leave event here
+        dropboxRef.current.style.boxShadow = 'none';
+
       };
       
       const handleDrop = (e) => {
         e.preventDefault();
-        // const reader = new FileReader();
-        // reader.onload = (e) => {
-        //     setImage(e.target.result);
-        // };
-        let files = Array.from(e.dataTransfer.files); // Array of all files, upload many to be implemented
-
-        // Get first file
+        let files = Array.from(e.dataTransfer.files);
         const first = files[0];
-        console.log(first)
-        if (first && first.type.startsWith('image/')) {
-            const reader = new FileReader();
-            console.log(reader)
-            reader.onload = (e) => {
-                setImage(e.target.result);
-                console.log(fileInputRef.current)
-                console.log(fileInputRef.current.value)
-                console.log(first.name)
-                
-                // set file name to be the name of the file when dropbox used
-                // fileInputRef.current.value = 'C:\\fakepath\\' + first;
-            };
-            reader.readAsDataURL(first);
-        } else {
-            setImage(null);
-            alert('Please only upload images');
-        }
-        dropboxRef.current.style.backgroundColor = 'lightgray';
-        
-        
+        setFileObject(first);
       };
       
 
@@ -72,17 +57,15 @@ function Dropbox() {
     return (
         <>
             <div id='dropbox'>
-                {!image 
-                ? <div
+                <div
                 className='bin'
                 ref={dropboxRef}
                 onDragOver={handleDragOver}
                 onDragLeave={handleDragLeave}
                 onDrop={handleDrop}
                 >
-                Drop files here
+                {!image ? `Drop files here` : <img className="dropbox-image" src={image} alt="upload-preview" />}
                 </div> 
-                : <img className='bin' src={image} alt="upload-preview" />}
             </div>
 
             <label htmlFor='file-input-button' className='file-upload'>
@@ -92,8 +75,8 @@ function Dropbox() {
                 type="file"
                 ref={fileInputRef}
                 onChange={handleFileChange}
-                style={{ paddingLeft: '10px' }}
                 />
+                {fileName || 'No file selected'}
             </label>
 
         </>
